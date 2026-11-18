@@ -1,0 +1,1542 @@
+{
+  "_readme": "Play Developer API responses. Config packageName com.example.app, consumableProductIds [\"coins_100\"], clock 2026-11-18T12:00:00Z. expected = normalized Purchase before chain resolution (key = token).",
+  "config": {
+    "packageName": "com.example.app",
+    "consumableProductIds": [
+      "coins_100"
+    ],
+    "now": "2026-11-18T12:00:00.000Z"
+  },
+  "urls": {
+    "base": "https://androidpublisher.googleapis.com/androidpublisher/v3/",
+    "subscription": "applications/com.example.app/purchases/subscriptionsv2/tokens/{token}",
+    "product": "applications/com.example.app/purchases/productsv2/tokens/{token}",
+    "acknowledgeSubscription": "applications/com.example.app/purchases/subscriptions/{productId}/tokens/{token}:acknowledge",
+    "acknowledgeProduct": "applications/com.example.app/purchases/products/{productId}/tokens/{token}:acknowledge",
+    "consumeProduct": "applications/com.example.app/purchases/products/{productId}/tokens/{token}:consume"
+  },
+  "oauth": {
+    "tokenUrl": "https://oauth2.googleapis.com/token",
+    "scope": "https://www.googleapis.com/auth/androidpublisher",
+    "tokenResponse": {
+      "access_token": "ya29.test-access-token",
+      "expires_in": 3599,
+      "token_type": "Bearer"
+    },
+    "tokenError": {
+      "status": 400,
+      "body": {
+        "error": "invalid_grant",
+        "error_description": "Invalid JWT Signature."
+      }
+    }
+  },
+  "subscriptions": {
+    "active": {
+      "token": "gp-sub-token-1",
+      "body": {
+        "kind": "androidpublisher#subscriptionPurchaseV2",
+        "regionCode": "NP",
+        "startTime": "2026-11-16T12:00:00.000Z",
+        "subscriptionState": "SUBSCRIPTION_STATE_ACTIVE",
+        "latestOrderId": "GPA.3311-2222-3333-44444",
+        "acknowledgementState": "ACKNOWLEDGEMENT_STATE_PENDING",
+        "externalAccountIdentifiers": {
+          "obfuscatedExternalAccountId": "5b90c278-b5a6-8a30-b39d-f337aa4bbe98"
+        },
+        "lineItems": [
+          {
+            "productId": "premium_monthly",
+            "expiryTime": "2026-12-16T12:00:00.000Z",
+            "autoRenewingPlan": {
+              "autoRenewEnabled": true,
+              "recurringPrice": {
+                "currencyCode": "USD",
+                "units": "4",
+                "nanos": 990000000
+              }
+            },
+            "offerDetails": {
+              "basePlanId": "monthly",
+              "offerTags": []
+            },
+            "latestSuccessfulOrderId": "GPA.3311-2222-3333-44444"
+          }
+        ]
+      },
+      "expected": {
+        "platform": "google",
+        "key": "gp-sub-token-1",
+        "productId": "premium_monthly",
+        "productIds": [
+          "premium_monthly"
+        ],
+        "type": "subscription",
+        "status": "active",
+        "environment": "production",
+        "transactionId": "GPA.3311-2222-3333-44444",
+        "originalTransactionId": null,
+        "purchaseToken": "gp-sub-token-1",
+        "linkedPurchaseToken": null,
+        "purchasedAt": "2026-11-16T12:00:00.000Z",
+        "expiresAt": "2026-12-16T12:00:00.000Z",
+        "gracePeriodExpiresAt": null,
+        "willRenew": true,
+        "autoRenewProductId": null,
+        "accountToken": "5b90c278-b5a6-8a30-b39d-f337aa4bbe98",
+        "quantity": 1,
+        "familyShared": false,
+        "acknowledged": false,
+        "revokedAt": null,
+        "signedAt": "2026-11-18T12:00:00.000Z"
+      }
+    },
+    "activeAcknowledged": {
+      "token": "gp-sub-token-1",
+      "body": {
+        "kind": "androidpublisher#subscriptionPurchaseV2",
+        "regionCode": "NP",
+        "startTime": "2026-11-16T12:00:00.000Z",
+        "subscriptionState": "SUBSCRIPTION_STATE_ACTIVE",
+        "latestOrderId": "GPA.3311-2222-3333-44444",
+        "acknowledgementState": "ACKNOWLEDGEMENT_STATE_ACKNOWLEDGED",
+        "externalAccountIdentifiers": {
+          "obfuscatedExternalAccountId": "5b90c278-b5a6-8a30-b39d-f337aa4bbe98"
+        },
+        "lineItems": [
+          {
+            "productId": "premium_monthly",
+            "expiryTime": "2026-12-16T12:00:00.000Z",
+            "autoRenewingPlan": {
+              "autoRenewEnabled": true,
+              "recurringPrice": {
+                "currencyCode": "USD",
+                "units": "4",
+                "nanos": 990000000
+              }
+            },
+            "offerDetails": {
+              "basePlanId": "monthly",
+              "offerTags": []
+            },
+            "latestSuccessfulOrderId": "GPA.3311-2222-3333-44444"
+          }
+        ]
+      },
+      "expected": {
+        "platform": "google",
+        "key": "gp-sub-token-1",
+        "productId": "premium_monthly",
+        "productIds": [
+          "premium_monthly"
+        ],
+        "type": "subscription",
+        "status": "active",
+        "environment": "production",
+        "transactionId": "GPA.3311-2222-3333-44444",
+        "originalTransactionId": null,
+        "purchaseToken": "gp-sub-token-1",
+        "linkedPurchaseToken": null,
+        "purchasedAt": "2026-11-16T12:00:00.000Z",
+        "expiresAt": "2026-12-16T12:00:00.000Z",
+        "gracePeriodExpiresAt": null,
+        "willRenew": true,
+        "autoRenewProductId": null,
+        "accountToken": "5b90c278-b5a6-8a30-b39d-f337aa4bbe98",
+        "quantity": 1,
+        "familyShared": false,
+        "acknowledged": true,
+        "revokedAt": null,
+        "signedAt": "2026-11-18T12:00:00.000Z"
+      }
+    },
+    "noAccount": {
+      "token": "gp-sub-token-noacct",
+      "body": {
+        "kind": "androidpublisher#subscriptionPurchaseV2",
+        "regionCode": "NP",
+        "startTime": "2026-11-16T12:00:00.000Z",
+        "subscriptionState": "SUBSCRIPTION_STATE_ACTIVE",
+        "latestOrderId": "GPA.3311-2222-3333-44444",
+        "acknowledgementState": "ACKNOWLEDGEMENT_STATE_PENDING",
+        "lineItems": [
+          {
+            "productId": "premium_monthly",
+            "expiryTime": "2026-12-16T12:00:00.000Z",
+            "autoRenewingPlan": {
+              "autoRenewEnabled": true,
+              "recurringPrice": {
+                "currencyCode": "USD",
+                "units": "4",
+                "nanos": 990000000
+              }
+            },
+            "offerDetails": {
+              "basePlanId": "monthly",
+              "offerTags": []
+            },
+            "latestSuccessfulOrderId": "GPA.3311-2222-3333-44444"
+          }
+        ]
+      },
+      "expected": {
+        "platform": "google",
+        "key": "gp-sub-token-noacct",
+        "productId": "premium_monthly",
+        "productIds": [
+          "premium_monthly"
+        ],
+        "type": "subscription",
+        "status": "active",
+        "environment": "production",
+        "transactionId": "GPA.3311-2222-3333-44444",
+        "originalTransactionId": null,
+        "purchaseToken": "gp-sub-token-noacct",
+        "linkedPurchaseToken": null,
+        "purchasedAt": "2026-11-16T12:00:00.000Z",
+        "expiresAt": "2026-12-16T12:00:00.000Z",
+        "gracePeriodExpiresAt": null,
+        "willRenew": true,
+        "autoRenewProductId": null,
+        "accountToken": null,
+        "quantity": 1,
+        "familyShared": false,
+        "acknowledged": false,
+        "revokedAt": null,
+        "signedAt": "2026-11-18T12:00:00.000Z"
+      }
+    },
+    "user2": {
+      "token": "gp-sub-token-user2",
+      "body": {
+        "kind": "androidpublisher#subscriptionPurchaseV2",
+        "regionCode": "NP",
+        "startTime": "2026-11-16T12:00:00.000Z",
+        "subscriptionState": "SUBSCRIPTION_STATE_ACTIVE",
+        "latestOrderId": "GPA.3311-2222-3333-44444",
+        "acknowledgementState": "ACKNOWLEDGEMENT_STATE_PENDING",
+        "externalAccountIdentifiers": {
+          "obfuscatedExternalAccountId": "38e2d89f-a481-8ea2-b25d-da811a7c1523"
+        },
+        "lineItems": [
+          {
+            "productId": "premium_monthly",
+            "expiryTime": "2026-12-16T12:00:00.000Z",
+            "autoRenewingPlan": {
+              "autoRenewEnabled": true,
+              "recurringPrice": {
+                "currencyCode": "USD",
+                "units": "4",
+                "nanos": 990000000
+              }
+            },
+            "offerDetails": {
+              "basePlanId": "monthly",
+              "offerTags": []
+            },
+            "latestSuccessfulOrderId": "GPA.3311-2222-3333-44444"
+          }
+        ]
+      },
+      "expected": {
+        "platform": "google",
+        "key": "gp-sub-token-user2",
+        "productId": "premium_monthly",
+        "productIds": [
+          "premium_monthly"
+        ],
+        "type": "subscription",
+        "status": "active",
+        "environment": "production",
+        "transactionId": "GPA.3311-2222-3333-44444",
+        "originalTransactionId": null,
+        "purchaseToken": "gp-sub-token-user2",
+        "linkedPurchaseToken": null,
+        "purchasedAt": "2026-11-16T12:00:00.000Z",
+        "expiresAt": "2026-12-16T12:00:00.000Z",
+        "gracePeriodExpiresAt": null,
+        "willRenew": true,
+        "autoRenewProductId": null,
+        "accountToken": "38e2d89f-a481-8ea2-b25d-da811a7c1523",
+        "quantity": 1,
+        "familyShared": false,
+        "acknowledged": false,
+        "revokedAt": null,
+        "signedAt": "2026-11-18T12:00:00.000Z"
+      }
+    },
+    "canceledNotExpired": {
+      "token": "gp-sub-token-1",
+      "body": {
+        "kind": "androidpublisher#subscriptionPurchaseV2",
+        "regionCode": "NP",
+        "startTime": "2026-11-16T12:00:00.000Z",
+        "subscriptionState": "SUBSCRIPTION_STATE_CANCELED",
+        "latestOrderId": "GPA.3311-2222-3333-44444",
+        "acknowledgementState": "ACKNOWLEDGEMENT_STATE_ACKNOWLEDGED",
+        "externalAccountIdentifiers": {
+          "obfuscatedExternalAccountId": "5b90c278-b5a6-8a30-b39d-f337aa4bbe98"
+        },
+        "lineItems": [
+          {
+            "productId": "premium_monthly",
+            "expiryTime": "2026-12-16T12:00:00.000Z",
+            "autoRenewingPlan": {
+              "autoRenewEnabled": false
+            },
+            "offerDetails": {
+              "basePlanId": "monthly",
+              "offerTags": []
+            },
+            "latestSuccessfulOrderId": "GPA.3311-2222-3333-44444"
+          }
+        ],
+        "canceledStateContext": {
+          "userInitiatedCancellation": {
+            "cancelTime": "2026-11-18T11:00:00.000Z"
+          }
+        }
+      },
+      "expected": {
+        "platform": "google",
+        "key": "gp-sub-token-1",
+        "productId": "premium_monthly",
+        "productIds": [
+          "premium_monthly"
+        ],
+        "type": "subscription",
+        "status": "active",
+        "environment": "production",
+        "transactionId": "GPA.3311-2222-3333-44444",
+        "originalTransactionId": null,
+        "purchaseToken": "gp-sub-token-1",
+        "linkedPurchaseToken": null,
+        "purchasedAt": "2026-11-16T12:00:00.000Z",
+        "expiresAt": "2026-12-16T12:00:00.000Z",
+        "gracePeriodExpiresAt": null,
+        "willRenew": false,
+        "autoRenewProductId": null,
+        "accountToken": "5b90c278-b5a6-8a30-b39d-f337aa4bbe98",
+        "quantity": 1,
+        "familyShared": false,
+        "acknowledged": true,
+        "revokedAt": null,
+        "signedAt": "2026-11-18T12:00:00.000Z"
+      }
+    },
+    "canceledExpired": {
+      "token": "gp-sub-token-1",
+      "body": {
+        "kind": "androidpublisher#subscriptionPurchaseV2",
+        "regionCode": "NP",
+        "startTime": "2026-11-16T12:00:00.000Z",
+        "subscriptionState": "SUBSCRIPTION_STATE_CANCELED",
+        "latestOrderId": "GPA.3311-2222-3333-44444",
+        "acknowledgementState": "ACKNOWLEDGEMENT_STATE_ACKNOWLEDGED",
+        "externalAccountIdentifiers": {
+          "obfuscatedExternalAccountId": "5b90c278-b5a6-8a30-b39d-f337aa4bbe98"
+        },
+        "lineItems": [
+          {
+            "productId": "premium_monthly",
+            "expiryTime": "2026-11-18T11:00:00.000Z",
+            "autoRenewingPlan": {
+              "autoRenewEnabled": false
+            },
+            "offerDetails": {
+              "basePlanId": "monthly",
+              "offerTags": []
+            },
+            "latestSuccessfulOrderId": "GPA.3311-2222-3333-44444"
+          }
+        ]
+      },
+      "expected": {
+        "platform": "google",
+        "key": "gp-sub-token-1",
+        "productId": "premium_monthly",
+        "productIds": [
+          "premium_monthly"
+        ],
+        "type": "subscription",
+        "status": "expired",
+        "environment": "production",
+        "transactionId": "GPA.3311-2222-3333-44444",
+        "originalTransactionId": null,
+        "purchaseToken": "gp-sub-token-1",
+        "linkedPurchaseToken": null,
+        "purchasedAt": "2026-11-16T12:00:00.000Z",
+        "expiresAt": "2026-11-18T11:00:00.000Z",
+        "gracePeriodExpiresAt": null,
+        "willRenew": false,
+        "autoRenewProductId": null,
+        "accountToken": "5b90c278-b5a6-8a30-b39d-f337aa4bbe98",
+        "quantity": 1,
+        "familyShared": false,
+        "acknowledged": true,
+        "revokedAt": null,
+        "signedAt": "2026-11-18T12:00:00.000Z"
+      }
+    },
+    "gracePeriod": {
+      "token": "gp-sub-token-1",
+      "body": {
+        "kind": "androidpublisher#subscriptionPurchaseV2",
+        "regionCode": "NP",
+        "startTime": "2026-11-16T12:00:00.000Z",
+        "subscriptionState": "SUBSCRIPTION_STATE_IN_GRACE_PERIOD",
+        "latestOrderId": "GPA.3311-2222-3333-44444",
+        "acknowledgementState": "ACKNOWLEDGEMENT_STATE_ACKNOWLEDGED",
+        "externalAccountIdentifiers": {
+          "obfuscatedExternalAccountId": "5b90c278-b5a6-8a30-b39d-f337aa4bbe98"
+        },
+        "lineItems": [
+          {
+            "productId": "premium_monthly",
+            "expiryTime": "2026-11-21T12:00:00.000Z",
+            "autoRenewingPlan": {
+              "autoRenewEnabled": true,
+              "recurringPrice": {
+                "currencyCode": "USD",
+                "units": "4",
+                "nanos": 990000000
+              }
+            },
+            "offerDetails": {
+              "basePlanId": "monthly",
+              "offerTags": []
+            },
+            "latestSuccessfulOrderId": "GPA.3311-2222-3333-44444"
+          }
+        ]
+      },
+      "expected": {
+        "platform": "google",
+        "key": "gp-sub-token-1",
+        "productId": "premium_monthly",
+        "productIds": [
+          "premium_monthly"
+        ],
+        "type": "subscription",
+        "status": "grace_period",
+        "environment": "production",
+        "transactionId": "GPA.3311-2222-3333-44444",
+        "originalTransactionId": null,
+        "purchaseToken": "gp-sub-token-1",
+        "linkedPurchaseToken": null,
+        "purchasedAt": "2026-11-16T12:00:00.000Z",
+        "expiresAt": "2026-11-21T12:00:00.000Z",
+        "gracePeriodExpiresAt": null,
+        "willRenew": true,
+        "autoRenewProductId": null,
+        "accountToken": "5b90c278-b5a6-8a30-b39d-f337aa4bbe98",
+        "quantity": 1,
+        "familyShared": false,
+        "acknowledged": true,
+        "revokedAt": null,
+        "signedAt": "2026-11-18T12:00:00.000Z"
+      }
+    },
+    "onHold": {
+      "token": "gp-sub-token-1",
+      "body": {
+        "kind": "androidpublisher#subscriptionPurchaseV2",
+        "regionCode": "NP",
+        "startTime": "2026-11-16T12:00:00.000Z",
+        "subscriptionState": "SUBSCRIPTION_STATE_ON_HOLD",
+        "latestOrderId": "GPA.3311-2222-3333-44444",
+        "acknowledgementState": "ACKNOWLEDGEMENT_STATE_ACKNOWLEDGED",
+        "externalAccountIdentifiers": {
+          "obfuscatedExternalAccountId": "5b90c278-b5a6-8a30-b39d-f337aa4bbe98"
+        },
+        "lineItems": [
+          {
+            "productId": "premium_monthly",
+            "expiryTime": "2026-11-17T12:00:00.000Z",
+            "autoRenewingPlan": {
+              "autoRenewEnabled": true,
+              "recurringPrice": {
+                "currencyCode": "USD",
+                "units": "4",
+                "nanos": 990000000
+              }
+            },
+            "offerDetails": {
+              "basePlanId": "monthly",
+              "offerTags": []
+            },
+            "latestSuccessfulOrderId": "GPA.3311-2222-3333-44444"
+          }
+        ]
+      },
+      "expected": {
+        "platform": "google",
+        "key": "gp-sub-token-1",
+        "productId": "premium_monthly",
+        "productIds": [
+          "premium_monthly"
+        ],
+        "type": "subscription",
+        "status": "billing_retry",
+        "environment": "production",
+        "transactionId": "GPA.3311-2222-3333-44444",
+        "originalTransactionId": null,
+        "purchaseToken": "gp-sub-token-1",
+        "linkedPurchaseToken": null,
+        "purchasedAt": "2026-11-16T12:00:00.000Z",
+        "expiresAt": "2026-11-17T12:00:00.000Z",
+        "gracePeriodExpiresAt": null,
+        "willRenew": true,
+        "autoRenewProductId": null,
+        "accountToken": "5b90c278-b5a6-8a30-b39d-f337aa4bbe98",
+        "quantity": 1,
+        "familyShared": false,
+        "acknowledged": true,
+        "revokedAt": null,
+        "signedAt": "2026-11-18T12:00:00.000Z"
+      }
+    },
+    "paused": {
+      "token": "gp-sub-token-1",
+      "body": {
+        "kind": "androidpublisher#subscriptionPurchaseV2",
+        "regionCode": "NP",
+        "startTime": "2026-11-16T12:00:00.000Z",
+        "subscriptionState": "SUBSCRIPTION_STATE_PAUSED",
+        "latestOrderId": "GPA.3311-2222-3333-44444",
+        "acknowledgementState": "ACKNOWLEDGEMENT_STATE_ACKNOWLEDGED",
+        "externalAccountIdentifiers": {
+          "obfuscatedExternalAccountId": "5b90c278-b5a6-8a30-b39d-f337aa4bbe98"
+        },
+        "lineItems": [
+          {
+            "productId": "premium_monthly",
+            "expiryTime": "2026-11-17T12:00:00.000Z",
+            "autoRenewingPlan": {
+              "autoRenewEnabled": true,
+              "recurringPrice": {
+                "currencyCode": "USD",
+                "units": "4",
+                "nanos": 990000000
+              }
+            },
+            "offerDetails": {
+              "basePlanId": "monthly",
+              "offerTags": []
+            },
+            "latestSuccessfulOrderId": "GPA.3311-2222-3333-44444"
+          }
+        ]
+      },
+      "expected": {
+        "platform": "google",
+        "key": "gp-sub-token-1",
+        "productId": "premium_monthly",
+        "productIds": [
+          "premium_monthly"
+        ],
+        "type": "subscription",
+        "status": "paused",
+        "environment": "production",
+        "transactionId": "GPA.3311-2222-3333-44444",
+        "originalTransactionId": null,
+        "purchaseToken": "gp-sub-token-1",
+        "linkedPurchaseToken": null,
+        "purchasedAt": "2026-11-16T12:00:00.000Z",
+        "expiresAt": "2026-11-17T12:00:00.000Z",
+        "gracePeriodExpiresAt": null,
+        "willRenew": true,
+        "autoRenewProductId": null,
+        "accountToken": "5b90c278-b5a6-8a30-b39d-f337aa4bbe98",
+        "quantity": 1,
+        "familyShared": false,
+        "acknowledged": true,
+        "revokedAt": null,
+        "signedAt": "2026-11-18T12:00:00.000Z"
+      }
+    },
+    "expired": {
+      "token": "gp-sub-token-1",
+      "body": {
+        "kind": "androidpublisher#subscriptionPurchaseV2",
+        "regionCode": "NP",
+        "startTime": "2026-11-16T12:00:00.000Z",
+        "subscriptionState": "SUBSCRIPTION_STATE_EXPIRED",
+        "latestOrderId": "GPA.3311-2222-3333-44444",
+        "acknowledgementState": "ACKNOWLEDGEMENT_STATE_ACKNOWLEDGED",
+        "externalAccountIdentifiers": {
+          "obfuscatedExternalAccountId": "5b90c278-b5a6-8a30-b39d-f337aa4bbe98"
+        },
+        "lineItems": [
+          {
+            "productId": "premium_monthly",
+            "expiryTime": "2026-11-16T12:00:00.000Z",
+            "autoRenewingPlan": {
+              "autoRenewEnabled": false
+            },
+            "offerDetails": {
+              "basePlanId": "monthly",
+              "offerTags": []
+            },
+            "latestSuccessfulOrderId": "GPA.3311-2222-3333-44444"
+          }
+        ]
+      },
+      "expected": {
+        "platform": "google",
+        "key": "gp-sub-token-1",
+        "productId": "premium_monthly",
+        "productIds": [
+          "premium_monthly"
+        ],
+        "type": "subscription",
+        "status": "expired",
+        "environment": "production",
+        "transactionId": "GPA.3311-2222-3333-44444",
+        "originalTransactionId": null,
+        "purchaseToken": "gp-sub-token-1",
+        "linkedPurchaseToken": null,
+        "purchasedAt": "2026-11-16T12:00:00.000Z",
+        "expiresAt": "2026-11-16T12:00:00.000Z",
+        "gracePeriodExpiresAt": null,
+        "willRenew": false,
+        "autoRenewProductId": null,
+        "accountToken": "5b90c278-b5a6-8a30-b39d-f337aa4bbe98",
+        "quantity": 1,
+        "familyShared": false,
+        "acknowledged": true,
+        "revokedAt": null,
+        "signedAt": "2026-11-18T12:00:00.000Z"
+      }
+    },
+    "pending": {
+      "token": "gp-sub-token-pending",
+      "body": {
+        "kind": "androidpublisher#subscriptionPurchaseV2",
+        "regionCode": "NP",
+        "startTime": "2026-11-16T12:00:00.000Z",
+        "subscriptionState": "SUBSCRIPTION_STATE_PENDING",
+        "acknowledgementState": "ACKNOWLEDGEMENT_STATE_PENDING",
+        "externalAccountIdentifiers": {
+          "obfuscatedExternalAccountId": "5b90c278-b5a6-8a30-b39d-f337aa4bbe98"
+        },
+        "lineItems": [
+          {
+            "productId": "premium_monthly",
+            "autoRenewingPlan": {
+              "autoRenewEnabled": true
+            }
+          }
+        ]
+      },
+      "expected": {
+        "platform": "google",
+        "key": "gp-sub-token-pending",
+        "productId": "premium_monthly",
+        "productIds": [
+          "premium_monthly"
+        ],
+        "type": "subscription",
+        "status": "pending",
+        "environment": "production",
+        "transactionId": "",
+        "originalTransactionId": null,
+        "purchaseToken": "gp-sub-token-pending",
+        "linkedPurchaseToken": null,
+        "purchasedAt": "2026-11-16T12:00:00.000Z",
+        "expiresAt": null,
+        "gracePeriodExpiresAt": null,
+        "willRenew": true,
+        "autoRenewProductId": null,
+        "accountToken": "5b90c278-b5a6-8a30-b39d-f337aa4bbe98",
+        "quantity": 1,
+        "familyShared": false,
+        "acknowledged": false,
+        "revokedAt": null,
+        "signedAt": "2026-11-18T12:00:00.000Z"
+      }
+    },
+    "pendingCanceled": {
+      "token": "gp-sub-token-pending",
+      "body": {
+        "kind": "androidpublisher#subscriptionPurchaseV2",
+        "regionCode": "NP",
+        "startTime": "2026-11-16T12:00:00.000Z",
+        "subscriptionState": "SUBSCRIPTION_STATE_PENDING_PURCHASE_CANCELED",
+        "acknowledgementState": "ACKNOWLEDGEMENT_STATE_PENDING",
+        "externalAccountIdentifiers": {
+          "obfuscatedExternalAccountId": "5b90c278-b5a6-8a30-b39d-f337aa4bbe98"
+        },
+        "lineItems": [
+          {
+            "productId": "premium_monthly",
+            "autoRenewingPlan": {
+              "autoRenewEnabled": false
+            }
+          }
+        ]
+      },
+      "expected": {
+        "platform": "google",
+        "key": "gp-sub-token-pending",
+        "productId": "premium_monthly",
+        "productIds": [
+          "premium_monthly"
+        ],
+        "type": "subscription",
+        "status": "canceled",
+        "environment": "production",
+        "transactionId": "",
+        "originalTransactionId": null,
+        "purchaseToken": "gp-sub-token-pending",
+        "linkedPurchaseToken": null,
+        "purchasedAt": "2026-11-16T12:00:00.000Z",
+        "expiresAt": null,
+        "gracePeriodExpiresAt": null,
+        "willRenew": false,
+        "autoRenewProductId": null,
+        "accountToken": "5b90c278-b5a6-8a30-b39d-f337aa4bbe98",
+        "quantity": 1,
+        "familyShared": false,
+        "acknowledged": false,
+        "revokedAt": null,
+        "signedAt": "2026-11-18T12:00:00.000Z"
+      }
+    },
+    "upgraded": {
+      "token": "gp-sub-token-2",
+      "body": {
+        "kind": "androidpublisher#subscriptionPurchaseV2",
+        "regionCode": "NP",
+        "startTime": "2026-11-18T11:50:00.000Z",
+        "subscriptionState": "SUBSCRIPTION_STATE_ACTIVE",
+        "latestOrderId": "GPA.3311-2222-3333-55555",
+        "acknowledgementState": "ACKNOWLEDGEMENT_STATE_PENDING",
+        "externalAccountIdentifiers": {
+          "obfuscatedExternalAccountId": "5b90c278-b5a6-8a30-b39d-f337aa4bbe98"
+        },
+        "lineItems": [
+          {
+            "productId": "premium_yearly",
+            "expiryTime": "2027-11-18T12:00:00.000Z",
+            "autoRenewingPlan": {
+              "autoRenewEnabled": true,
+              "recurringPrice": {
+                "currencyCode": "USD",
+                "units": "4",
+                "nanos": 990000000
+              }
+            },
+            "offerDetails": {
+              "basePlanId": "yearly",
+              "offerTags": []
+            },
+            "latestSuccessfulOrderId": "GPA.3311-2222-3333-55555"
+          }
+        ],
+        "linkedPurchaseToken": "gp-sub-token-1"
+      },
+      "expected": {
+        "platform": "google",
+        "key": "gp-sub-token-2",
+        "productId": "premium_yearly",
+        "productIds": [
+          "premium_yearly"
+        ],
+        "type": "subscription",
+        "status": "active",
+        "environment": "production",
+        "transactionId": "GPA.3311-2222-3333-55555",
+        "originalTransactionId": null,
+        "purchaseToken": "gp-sub-token-2",
+        "linkedPurchaseToken": "gp-sub-token-1",
+        "purchasedAt": "2026-11-18T11:50:00.000Z",
+        "expiresAt": "2027-11-18T12:00:00.000Z",
+        "gracePeriodExpiresAt": null,
+        "willRenew": true,
+        "autoRenewProductId": null,
+        "accountToken": "5b90c278-b5a6-8a30-b39d-f337aa4bbe98",
+        "quantity": 1,
+        "familyShared": false,
+        "acknowledged": false,
+        "revokedAt": null,
+        "signedAt": "2026-11-18T12:00:00.000Z"
+      }
+    },
+    "upgradedAgain": {
+      "token": "gp-sub-token-3",
+      "body": {
+        "kind": "androidpublisher#subscriptionPurchaseV2",
+        "regionCode": "NP",
+        "startTime": "2026-11-18T11:55:00.000Z",
+        "subscriptionState": "SUBSCRIPTION_STATE_ACTIVE",
+        "latestOrderId": "GPA.3311-2222-3333-66666",
+        "acknowledgementState": "ACKNOWLEDGEMENT_STATE_PENDING",
+        "externalAccountIdentifiers": {
+          "obfuscatedExternalAccountId": "5b90c278-b5a6-8a30-b39d-f337aa4bbe98"
+        },
+        "lineItems": [
+          {
+            "productId": "premium_family",
+            "expiryTime": "2027-11-18T12:00:00.000Z",
+            "autoRenewingPlan": {
+              "autoRenewEnabled": true,
+              "recurringPrice": {
+                "currencyCode": "USD",
+                "units": "4",
+                "nanos": 990000000
+              }
+            },
+            "offerDetails": {
+              "basePlanId": "family",
+              "offerTags": []
+            },
+            "latestSuccessfulOrderId": "GPA.3311-2222-3333-66666"
+          }
+        ],
+        "linkedPurchaseToken": "gp-sub-token-2"
+      },
+      "expected": {
+        "platform": "google",
+        "key": "gp-sub-token-3",
+        "productId": "premium_family",
+        "productIds": [
+          "premium_family"
+        ],
+        "type": "subscription",
+        "status": "active",
+        "environment": "production",
+        "transactionId": "GPA.3311-2222-3333-66666",
+        "originalTransactionId": null,
+        "purchaseToken": "gp-sub-token-3",
+        "linkedPurchaseToken": "gp-sub-token-2",
+        "purchasedAt": "2026-11-18T11:55:00.000Z",
+        "expiresAt": "2027-11-18T12:00:00.000Z",
+        "gracePeriodExpiresAt": null,
+        "willRenew": true,
+        "autoRenewProductId": null,
+        "accountToken": "5b90c278-b5a6-8a30-b39d-f337aa4bbe98",
+        "quantity": 1,
+        "familyShared": false,
+        "acknowledged": false,
+        "revokedAt": null,
+        "signedAt": "2026-11-18T12:00:00.000Z"
+      }
+    },
+    "testPurchase": {
+      "token": "gp-sub-token-test",
+      "body": {
+        "kind": "androidpublisher#subscriptionPurchaseV2",
+        "regionCode": "NP",
+        "startTime": "2026-11-16T12:00:00.000Z",
+        "subscriptionState": "SUBSCRIPTION_STATE_ACTIVE",
+        "latestOrderId": "GPA.3311-2222-3333-44444",
+        "acknowledgementState": "ACKNOWLEDGEMENT_STATE_PENDING",
+        "externalAccountIdentifiers": {
+          "obfuscatedExternalAccountId": "5b90c278-b5a6-8a30-b39d-f337aa4bbe98"
+        },
+        "lineItems": [
+          {
+            "productId": "premium_monthly",
+            "expiryTime": "2026-12-16T12:00:00.000Z",
+            "autoRenewingPlan": {
+              "autoRenewEnabled": true,
+              "recurringPrice": {
+                "currencyCode": "USD",
+                "units": "4",
+                "nanos": 990000000
+              }
+            },
+            "offerDetails": {
+              "basePlanId": "monthly",
+              "offerTags": []
+            },
+            "latestSuccessfulOrderId": "GPA.3311-2222-3333-44444"
+          }
+        ],
+        "testPurchase": {}
+      },
+      "expected": {
+        "platform": "google",
+        "key": "gp-sub-token-test",
+        "productId": "premium_monthly",
+        "productIds": [
+          "premium_monthly"
+        ],
+        "type": "subscription",
+        "status": "active",
+        "environment": "sandbox",
+        "transactionId": "GPA.3311-2222-3333-44444",
+        "originalTransactionId": null,
+        "purchaseToken": "gp-sub-token-test",
+        "linkedPurchaseToken": null,
+        "purchasedAt": "2026-11-16T12:00:00.000Z",
+        "expiresAt": "2026-12-16T12:00:00.000Z",
+        "gracePeriodExpiresAt": null,
+        "willRenew": true,
+        "autoRenewProductId": null,
+        "accountToken": "5b90c278-b5a6-8a30-b39d-f337aa4bbe98",
+        "quantity": 1,
+        "familyShared": false,
+        "acknowledged": false,
+        "revokedAt": null,
+        "signedAt": "2026-11-18T12:00:00.000Z"
+      }
+    },
+    "prepaid": {
+      "token": "gp-sub-token-prepaid",
+      "body": {
+        "kind": "androidpublisher#subscriptionPurchaseV2",
+        "regionCode": "NP",
+        "startTime": "2026-11-16T12:00:00.000Z",
+        "subscriptionState": "SUBSCRIPTION_STATE_ACTIVE",
+        "latestOrderId": "GPA.3311-2222-3333-44444",
+        "acknowledgementState": "ACKNOWLEDGEMENT_STATE_PENDING",
+        "externalAccountIdentifiers": {
+          "obfuscatedExternalAccountId": "5b90c278-b5a6-8a30-b39d-f337aa4bbe98"
+        },
+        "lineItems": [
+          {
+            "productId": "premium_prepaid",
+            "expiryTime": "2026-11-25T12:00:00.000Z",
+            "prepaidPlan": {
+              "allowExtendAfterTime": "2026-11-22T12:00:00.000Z"
+            },
+            "latestSuccessfulOrderId": "GPA.3311-2222-3333-77777"
+          }
+        ]
+      },
+      "expected": {
+        "platform": "google",
+        "key": "gp-sub-token-prepaid",
+        "productId": "premium_prepaid",
+        "productIds": [
+          "premium_prepaid"
+        ],
+        "type": "subscription",
+        "status": "active",
+        "environment": "production",
+        "transactionId": "GPA.3311-2222-3333-77777",
+        "originalTransactionId": null,
+        "purchaseToken": "gp-sub-token-prepaid",
+        "linkedPurchaseToken": null,
+        "purchasedAt": "2026-11-16T12:00:00.000Z",
+        "expiresAt": "2026-11-25T12:00:00.000Z",
+        "gracePeriodExpiresAt": null,
+        "willRenew": false,
+        "autoRenewProductId": null,
+        "accountToken": "5b90c278-b5a6-8a30-b39d-f337aa4bbe98",
+        "quantity": 1,
+        "familyShared": false,
+        "acknowledged": false,
+        "revokedAt": null,
+        "signedAt": "2026-11-18T12:00:00.000Z"
+      }
+    },
+    "bundle": {
+      "token": "gp-sub-token-bundle",
+      "body": {
+        "kind": "androidpublisher#subscriptionPurchaseV2",
+        "regionCode": "NP",
+        "startTime": "2026-11-16T12:00:00.000Z",
+        "subscriptionState": "SUBSCRIPTION_STATE_ACTIVE",
+        "latestOrderId": "GPA.3311-2222-3333-44444",
+        "acknowledgementState": "ACKNOWLEDGEMENT_STATE_PENDING",
+        "externalAccountIdentifiers": {
+          "obfuscatedExternalAccountId": "5b90c278-b5a6-8a30-b39d-f337aa4bbe98"
+        },
+        "lineItems": [
+          {
+            "productId": "premium_monthly",
+            "expiryTime": "2026-12-16T12:00:00.000Z",
+            "autoRenewingPlan": {
+              "autoRenewEnabled": true,
+              "recurringPrice": {
+                "currencyCode": "USD",
+                "units": "4",
+                "nanos": 990000000
+              }
+            },
+            "offerDetails": {
+              "basePlanId": "monthly",
+              "offerTags": []
+            },
+            "latestSuccessfulOrderId": "GPA.3311-2222-3333-44444"
+          },
+          {
+            "productId": "addon_storage",
+            "expiryTime": "2026-12-18T12:00:00.000Z",
+            "autoRenewingPlan": {
+              "autoRenewEnabled": true,
+              "recurringPrice": {
+                "currencyCode": "USD",
+                "units": "4",
+                "nanos": 990000000
+              }
+            },
+            "offerDetails": {
+              "basePlanId": "addon_storage",
+              "offerTags": []
+            },
+            "latestSuccessfulOrderId": "GPA.3311-2222-3333-44444"
+          }
+        ]
+      },
+      "expected": {
+        "platform": "google",
+        "key": "gp-sub-token-bundle",
+        "productId": "premium_monthly",
+        "productIds": [
+          "premium_monthly",
+          "addon_storage"
+        ],
+        "type": "subscription",
+        "status": "active",
+        "environment": "production",
+        "transactionId": "GPA.3311-2222-3333-44444",
+        "originalTransactionId": null,
+        "purchaseToken": "gp-sub-token-bundle",
+        "linkedPurchaseToken": null,
+        "purchasedAt": "2026-11-16T12:00:00.000Z",
+        "expiresAt": "2026-12-18T12:00:00.000Z",
+        "gracePeriodExpiresAt": null,
+        "willRenew": true,
+        "autoRenewProductId": null,
+        "accountToken": "5b90c278-b5a6-8a30-b39d-f337aa4bbe98",
+        "quantity": 1,
+        "familyShared": false,
+        "acknowledged": false,
+        "revokedAt": null,
+        "signedAt": "2026-11-18T12:00:00.000Z"
+      }
+    },
+    "unknownState": {
+      "token": "gp-sub-token-1",
+      "body": {
+        "kind": "androidpublisher#subscriptionPurchaseV2",
+        "regionCode": "NP",
+        "startTime": "2026-11-16T12:00:00.000Z",
+        "subscriptionState": "SUBSCRIPTION_STATE_SOMETHING_NEW",
+        "latestOrderId": "GPA.3311-2222-3333-44444",
+        "acknowledgementState": "ACKNOWLEDGEMENT_STATE_PENDING",
+        "externalAccountIdentifiers": {
+          "obfuscatedExternalAccountId": "5b90c278-b5a6-8a30-b39d-f337aa4bbe98"
+        },
+        "lineItems": [
+          {
+            "productId": "premium_monthly",
+            "expiryTime": "2026-12-16T12:00:00.000Z",
+            "autoRenewingPlan": {
+              "autoRenewEnabled": true,
+              "recurringPrice": {
+                "currencyCode": "USD",
+                "units": "4",
+                "nanos": 990000000
+              }
+            },
+            "offerDetails": {
+              "basePlanId": "monthly",
+              "offerTags": []
+            },
+            "latestSuccessfulOrderId": "GPA.3311-2222-3333-44444"
+          }
+        ]
+      },
+      "expected": {
+        "platform": "google",
+        "key": "gp-sub-token-1",
+        "productId": "premium_monthly",
+        "productIds": [
+          "premium_monthly"
+        ],
+        "type": "subscription",
+        "status": "expired",
+        "environment": "production",
+        "transactionId": "GPA.3311-2222-3333-44444",
+        "originalTransactionId": null,
+        "purchaseToken": "gp-sub-token-1",
+        "linkedPurchaseToken": null,
+        "purchasedAt": "2026-11-16T12:00:00.000Z",
+        "expiresAt": "2026-12-16T12:00:00.000Z",
+        "gracePeriodExpiresAt": null,
+        "willRenew": true,
+        "autoRenewProductId": null,
+        "accountToken": "5b90c278-b5a6-8a30-b39d-f337aa4bbe98",
+        "quantity": 1,
+        "familyShared": false,
+        "acknowledged": false,
+        "revokedAt": null,
+        "signedAt": "2026-11-18T12:00:00.000Z"
+      }
+    }
+  },
+  "products": {
+    "consumable": {
+      "token": "gp-prod-token-coins",
+      "body": {
+        "kind": "androidpublisher#productPurchaseV2",
+        "regionCode": "NP",
+        "orderId": "GPA.3399-1111-2222-33333",
+        "purchaseCompletionTime": "2026-11-18T11:55:00.000Z",
+        "purchaseStateContext": {
+          "purchaseState": "PURCHASED"
+        },
+        "acknowledgementState": "ACKNOWLEDGEMENT_STATE_PENDING",
+        "obfuscatedExternalAccountId": "5b90c278-b5a6-8a30-b39d-f337aa4bbe98",
+        "productLineItem": [
+          {
+            "productId": "coins_100",
+            "productOfferDetails": {
+              "quantity": 3,
+              "refundableQuantity": 3,
+              "consumptionState": "CONSUMPTION_STATE_YET_TO_BE_CONSUMED",
+              "purchaseOptionId": "buy"
+            }
+          }
+        ]
+      },
+      "expected": {
+        "platform": "google",
+        "key": "gp-prod-token-coins",
+        "productId": "coins_100",
+        "productIds": [
+          "coins_100"
+        ],
+        "type": "consumable",
+        "status": "active",
+        "environment": "production",
+        "transactionId": "GPA.3399-1111-2222-33333",
+        "originalTransactionId": null,
+        "purchaseToken": "gp-prod-token-coins",
+        "linkedPurchaseToken": null,
+        "purchasedAt": "2026-11-18T11:55:00.000Z",
+        "expiresAt": null,
+        "gracePeriodExpiresAt": null,
+        "willRenew": null,
+        "autoRenewProductId": null,
+        "accountToken": "5b90c278-b5a6-8a30-b39d-f337aa4bbe98",
+        "quantity": 3,
+        "familyShared": false,
+        "acknowledged": false,
+        "revokedAt": null,
+        "signedAt": "2026-11-18T12:00:00.000Z"
+      }
+    },
+    "nonConsumable": {
+      "token": "gp-prod-token-lifetime",
+      "body": {
+        "kind": "androidpublisher#productPurchaseV2",
+        "regionCode": "NP",
+        "orderId": "GPA.3399-1111-2222-44444",
+        "purchaseCompletionTime": "2026-11-18T11:55:00.000Z",
+        "purchaseStateContext": {
+          "purchaseState": "PURCHASED"
+        },
+        "acknowledgementState": "ACKNOWLEDGEMENT_STATE_PENDING",
+        "obfuscatedExternalAccountId": "5b90c278-b5a6-8a30-b39d-f337aa4bbe98",
+        "productLineItem": [
+          {
+            "productId": "lifetime_unlock",
+            "productOfferDetails": {
+              "quantity": 1,
+              "purchaseOptionId": "buy"
+            }
+          }
+        ]
+      },
+      "expected": {
+        "platform": "google",
+        "key": "gp-prod-token-lifetime",
+        "productId": "lifetime_unlock",
+        "productIds": [
+          "lifetime_unlock"
+        ],
+        "type": "non_consumable",
+        "status": "active",
+        "environment": "production",
+        "transactionId": "GPA.3399-1111-2222-44444",
+        "originalTransactionId": null,
+        "purchaseToken": "gp-prod-token-lifetime",
+        "linkedPurchaseToken": null,
+        "purchasedAt": "2026-11-18T11:55:00.000Z",
+        "expiresAt": null,
+        "gracePeriodExpiresAt": null,
+        "willRenew": null,
+        "autoRenewProductId": null,
+        "accountToken": "5b90c278-b5a6-8a30-b39d-f337aa4bbe98",
+        "quantity": 1,
+        "familyShared": false,
+        "acknowledged": false,
+        "revokedAt": null,
+        "signedAt": "2026-11-18T12:00:00.000Z"
+      }
+    },
+    "nonConsumableAcknowledged": {
+      "token": "gp-prod-token-lifetime",
+      "body": {
+        "kind": "androidpublisher#productPurchaseV2",
+        "regionCode": "NP",
+        "orderId": "GPA.3399-1111-2222-44444",
+        "purchaseCompletionTime": "2026-11-18T11:55:00.000Z",
+        "purchaseStateContext": {
+          "purchaseState": "PURCHASED"
+        },
+        "acknowledgementState": "ACKNOWLEDGEMENT_STATE_ACKNOWLEDGED",
+        "obfuscatedExternalAccountId": "5b90c278-b5a6-8a30-b39d-f337aa4bbe98",
+        "productLineItem": [
+          {
+            "productId": "lifetime_unlock",
+            "productOfferDetails": {
+              "quantity": 1
+            }
+          }
+        ]
+      },
+      "expected": {
+        "platform": "google",
+        "key": "gp-prod-token-lifetime",
+        "productId": "lifetime_unlock",
+        "productIds": [
+          "lifetime_unlock"
+        ],
+        "type": "non_consumable",
+        "status": "active",
+        "environment": "production",
+        "transactionId": "GPA.3399-1111-2222-44444",
+        "originalTransactionId": null,
+        "purchaseToken": "gp-prod-token-lifetime",
+        "linkedPurchaseToken": null,
+        "purchasedAt": "2026-11-18T11:55:00.000Z",
+        "expiresAt": null,
+        "gracePeriodExpiresAt": null,
+        "willRenew": null,
+        "autoRenewProductId": null,
+        "accountToken": "5b90c278-b5a6-8a30-b39d-f337aa4bbe98",
+        "quantity": 1,
+        "familyShared": false,
+        "acknowledged": true,
+        "revokedAt": null,
+        "signedAt": "2026-11-18T12:00:00.000Z"
+      }
+    },
+    "pending": {
+      "token": "gp-prod-token-pending",
+      "body": {
+        "kind": "androidpublisher#productPurchaseV2",
+        "regionCode": "NP",
+        "purchaseStateContext": {
+          "purchaseState": "PENDING"
+        },
+        "acknowledgementState": "ACKNOWLEDGEMENT_STATE_PENDING",
+        "obfuscatedExternalAccountId": "5b90c278-b5a6-8a30-b39d-f337aa4bbe98",
+        "productLineItem": [
+          {
+            "productId": "coins_100",
+            "productOfferDetails": {
+              "quantity": 3,
+              "refundableQuantity": 3,
+              "consumptionState": "CONSUMPTION_STATE_YET_TO_BE_CONSUMED",
+              "purchaseOptionId": "buy"
+            }
+          }
+        ]
+      },
+      "expected": {
+        "platform": "google",
+        "key": "gp-prod-token-pending",
+        "productId": "coins_100",
+        "productIds": [
+          "coins_100"
+        ],
+        "type": "consumable",
+        "status": "pending",
+        "environment": "production",
+        "transactionId": "",
+        "originalTransactionId": null,
+        "purchaseToken": "gp-prod-token-pending",
+        "linkedPurchaseToken": null,
+        "purchasedAt": "2026-11-18T12:00:00.000Z",
+        "expiresAt": null,
+        "gracePeriodExpiresAt": null,
+        "willRenew": null,
+        "autoRenewProductId": null,
+        "accountToken": "5b90c278-b5a6-8a30-b39d-f337aa4bbe98",
+        "quantity": 3,
+        "familyShared": false,
+        "acknowledged": false,
+        "revokedAt": null,
+        "signedAt": "2026-11-18T12:00:00.000Z"
+      }
+    },
+    "cancelled": {
+      "token": "gp-prod-token-pending",
+      "body": {
+        "kind": "androidpublisher#productPurchaseV2",
+        "regionCode": "NP",
+        "purchaseStateContext": {
+          "purchaseState": "CANCELLED"
+        },
+        "acknowledgementState": "ACKNOWLEDGEMENT_STATE_PENDING",
+        "obfuscatedExternalAccountId": "5b90c278-b5a6-8a30-b39d-f337aa4bbe98",
+        "productLineItem": [
+          {
+            "productId": "coins_100",
+            "productOfferDetails": {
+              "quantity": 3,
+              "refundableQuantity": 3,
+              "consumptionState": "CONSUMPTION_STATE_YET_TO_BE_CONSUMED",
+              "purchaseOptionId": "buy"
+            }
+          }
+        ]
+      },
+      "expected": {
+        "platform": "google",
+        "key": "gp-prod-token-pending",
+        "productId": "coins_100",
+        "productIds": [
+          "coins_100"
+        ],
+        "type": "consumable",
+        "status": "canceled",
+        "environment": "production",
+        "transactionId": "",
+        "originalTransactionId": null,
+        "purchaseToken": "gp-prod-token-pending",
+        "linkedPurchaseToken": null,
+        "purchasedAt": "2026-11-18T12:00:00.000Z",
+        "expiresAt": null,
+        "gracePeriodExpiresAt": null,
+        "willRenew": null,
+        "autoRenewProductId": null,
+        "accountToken": "5b90c278-b5a6-8a30-b39d-f337aa4bbe98",
+        "quantity": 3,
+        "familyShared": false,
+        "acknowledged": false,
+        "revokedAt": null,
+        "signedAt": "2026-11-18T12:00:00.000Z"
+      }
+    },
+    "testPurchase": {
+      "token": "gp-prod-token-test",
+      "body": {
+        "kind": "androidpublisher#productPurchaseV2",
+        "regionCode": "NP",
+        "orderId": "GPA.3399-1111-2222-33333",
+        "purchaseCompletionTime": "2026-11-18T11:55:00.000Z",
+        "purchaseStateContext": {
+          "purchaseState": "PURCHASED"
+        },
+        "acknowledgementState": "ACKNOWLEDGEMENT_STATE_PENDING",
+        "obfuscatedExternalAccountId": "5b90c278-b5a6-8a30-b39d-f337aa4bbe98",
+        "productLineItem": [
+          {
+            "productId": "coins_100",
+            "productOfferDetails": {
+              "quantity": 3,
+              "refundableQuantity": 3,
+              "consumptionState": "CONSUMPTION_STATE_YET_TO_BE_CONSUMED",
+              "purchaseOptionId": "buy"
+            }
+          }
+        ],
+        "testPurchaseContext": {
+          "fopType": "TEST"
+        }
+      },
+      "expected": {
+        "platform": "google",
+        "key": "gp-prod-token-test",
+        "productId": "coins_100",
+        "productIds": [
+          "coins_100"
+        ],
+        "type": "consumable",
+        "status": "active",
+        "environment": "sandbox",
+        "transactionId": "GPA.3399-1111-2222-33333",
+        "originalTransactionId": null,
+        "purchaseToken": "gp-prod-token-test",
+        "linkedPurchaseToken": null,
+        "purchasedAt": "2026-11-18T11:55:00.000Z",
+        "expiresAt": null,
+        "gracePeriodExpiresAt": null,
+        "willRenew": null,
+        "autoRenewProductId": null,
+        "accountToken": "5b90c278-b5a6-8a30-b39d-f337aa4bbe98",
+        "quantity": 3,
+        "familyShared": false,
+        "acknowledged": false,
+        "revokedAt": null,
+        "signedAt": "2026-11-18T12:00:00.000Z"
+      }
+    },
+    "noAccount": {
+      "token": "gp-prod-token-noacct",
+      "body": {
+        "kind": "androidpublisher#productPurchaseV2",
+        "regionCode": "NP",
+        "orderId": "GPA.3399-1111-2222-33333",
+        "purchaseCompletionTime": "2026-11-18T11:55:00.000Z",
+        "purchaseStateContext": {
+          "purchaseState": "PURCHASED"
+        },
+        "acknowledgementState": "ACKNOWLEDGEMENT_STATE_PENDING",
+        "productLineItem": [
+          {
+            "productId": "coins_100",
+            "productOfferDetails": {
+              "quantity": 3,
+              "refundableQuantity": 3,
+              "consumptionState": "CONSUMPTION_STATE_YET_TO_BE_CONSUMED",
+              "purchaseOptionId": "buy"
+            }
+          }
+        ]
+      },
+      "expected": {
+        "platform": "google",
+        "key": "gp-prod-token-noacct",
+        "productId": "coins_100",
+        "productIds": [
+          "coins_100"
+        ],
+        "type": "consumable",
+        "status": "active",
+        "environment": "production",
+        "transactionId": "GPA.3399-1111-2222-33333",
+        "originalTransactionId": null,
+        "purchaseToken": "gp-prod-token-noacct",
+        "linkedPurchaseToken": null,
+        "purchasedAt": "2026-11-18T11:55:00.000Z",
+        "expiresAt": null,
+        "gracePeriodExpiresAt": null,
+        "willRenew": null,
+        "autoRenewProductId": null,
+        "accountToken": null,
+        "quantity": 3,
+        "familyShared": false,
+        "acknowledged": false,
+        "revokedAt": null,
+        "signedAt": "2026-11-18T12:00:00.000Z"
+      }
+    },
+    "noQuantity": {
+      "token": "gp-prod-token-noqty",
+      "body": {
+        "kind": "androidpublisher#productPurchaseV2",
+        "regionCode": "NP",
+        "orderId": "GPA.3399-1111-2222-33333",
+        "purchaseCompletionTime": "2026-11-18T11:55:00.000Z",
+        "purchaseStateContext": {
+          "purchaseState": "PURCHASED"
+        },
+        "acknowledgementState": "ACKNOWLEDGEMENT_STATE_PENDING",
+        "obfuscatedExternalAccountId": "5b90c278-b5a6-8a30-b39d-f337aa4bbe98",
+        "productLineItem": [
+          {
+            "productId": "coins_100"
+          }
+        ]
+      },
+      "expected": {
+        "platform": "google",
+        "key": "gp-prod-token-noqty",
+        "productId": "coins_100",
+        "productIds": [
+          "coins_100"
+        ],
+        "type": "consumable",
+        "status": "active",
+        "environment": "production",
+        "transactionId": "GPA.3399-1111-2222-33333",
+        "originalTransactionId": null,
+        "purchaseToken": "gp-prod-token-noqty",
+        "linkedPurchaseToken": null,
+        "purchasedAt": "2026-11-18T11:55:00.000Z",
+        "expiresAt": null,
+        "gracePeriodExpiresAt": null,
+        "willRenew": null,
+        "autoRenewProductId": null,
+        "accountToken": "5b90c278-b5a6-8a30-b39d-f337aa4bbe98",
+        "quantity": 1,
+        "familyShared": false,
+        "acknowledged": false,
+        "revokedAt": null,
+        "signedAt": "2026-11-18T12:00:00.000Z"
+      }
+    }
+  },
+  "errors": {
+    "notFound": {
+      "status": 404,
+      "body": {
+        "error": {
+          "code": 404,
+          "message": "The purchase token was not found.",
+          "status": "NOT_FOUND"
+        }
+      }
+    },
+    "gone": {
+      "status": 410,
+      "body": {
+        "error": {
+          "code": 410,
+          "message": "The subscription purchase is no longer available for query because it has been expired for too long.",
+          "status": "GONE"
+        }
+      }
+    },
+    "invalidToken": {
+      "status": 400,
+      "body": {
+        "error": {
+          "code": 400,
+          "message": "Invalid Value",
+          "status": "INVALID_ARGUMENT"
+        }
+      }
+    },
+    "unauthorized": {
+      "status": 401,
+      "body": {
+        "error": {
+          "code": 401,
+          "message": "Request had invalid authentication credentials.",
+          "status": "UNAUTHENTICATED"
+        }
+      }
+    },
+    "forbidden": {
+      "status": 403,
+      "body": {
+        "error": {
+          "code": 403,
+          "message": "The current user has insufficient permissions to perform the requested operation.",
+          "status": "PERMISSION_DENIED"
+        }
+      }
+    },
+    "rateLimited": {
+      "status": 429,
+      "body": {
+        "error": {
+          "code": 429,
+          "message": "Quota exceeded.",
+          "status": "RESOURCE_EXHAUSTED"
+        }
+      }
+    },
+    "serverError": {
+      "status": 503,
+      "body": {
+        "error": {
+          "code": 503,
+          "message": "The service is currently unavailable.",
+          "status": "UNAVAILABLE"
+        }
+      }
+    }
+  }
+}

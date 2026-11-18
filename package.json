@@ -1,0 +1,83 @@
+{
+  "name": "@bijayx/iap-guard",
+  "version": "0.1.0",
+  "description": "Server-side verification and ownership protection for Apple App Store and Google Play in-app purchases. One API for both stores, zero runtime dependencies.",
+  "keywords": [
+    "in-app-purchase",
+    "iap",
+    "storekit",
+    "storekit2",
+    "app-store-server-api",
+    "app-store-server-notifications",
+    "google-play-billing",
+    "play-developer-api",
+    "rtdn",
+    "receipt-validation",
+    "subscriptions",
+    "entitlements",
+    "typescript"
+  ],
+  "license": "MIT",
+  "author": "Bijay Shrestha",
+  "homepage": "https://github.com/BijayX/iap-guard-node#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BijayX/iap-guard-node.git"
+  },
+  "bugs": {
+    "url": "https://github.com/BijayX/iap-guard-node/issues"
+  },
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md",
+    "SECURITY.md"
+  ],
+  "sideEffects": false,
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "tsup",
+    "typecheck": "tsc --noEmit && tsc --noEmit -p examples/express",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "coverage": "vitest run --coverage",
+    "check": "npm run typecheck && npm run lint && npm run format:check && npm run test",
+    "ci": "npm run typecheck && npm run lint && npm run format:check && npm run coverage && npm run build",
+    "prepublishOnly": "npm run ci"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.20.5",
+    "@vitest/coverage-v8": "^4.1.12",
+    "eslint": "^10.15.0",
+    "prettier": "^3.10.1",
+    "tsup": "^8.5.1",
+    "typescript": "~6.0.3",
+    "typescript-eslint": "^8.73.0",
+    "vitest": "^4.1.12"
+  }
+}

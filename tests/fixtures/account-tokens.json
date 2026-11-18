@@ -1,0 +1,29 @@
+{
+  "secret": "test-account-token-secret-0123456789abcdef",
+  "cases": [
+    {
+      "userId": "user-1",
+      "token": "5b90c278-b5a6-8a30-b39d-f337aa4bbe98"
+    },
+    {
+      "userId": "user-2",
+      "token": "38e2d89f-a481-8ea2-b25d-da811a7c1523"
+    },
+    {
+      "userId": "42",
+      "token": "d4e4692e-8d4b-8a35-84d4-67334ceeab31"
+    },
+    {
+      "userId": "a@b.c",
+      "token": "76b12203-238e-8ad1-be22-23e023e7633c"
+    },
+    {
+      "userId": "ユーザー",
+      "token": "f818b5f4-3f72-8480-933a-bfb3dbe6cf70"
+    },
+    {
+      "userId": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+      "token": "3de5aed9-2dfb-8851-8894-9bf8a417bbbd"
+    }
+  ]
+}

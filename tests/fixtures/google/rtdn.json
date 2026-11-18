@@ -1,0 +1,486 @@
+{
+  "_readme": "Pub/Sub push request bodies (POST JSON). id = message.messageId. expected.fetch says which API the handler must call for expected.token (respond with google/api.json fixtures). forceStatus is applied on top of the fetched/stored state.",
+  "verificationToken": "test-push-verification-token-0123456789",
+  "notifications": {
+    "subscriptionPurchased": {
+      "body": {
+        "message": {
+          "data": "eyJ2ZXJzaW9uIjoiMS4wIiwicGFja2FnZU5hbWUiOiJjb20uZXhhbXBsZS5hcHAiLCJldmVudFRpbWVNaWxsaXMiOiIxNzk1MDAzMTQwMDAwIiwic3Vic2NyaXB0aW9uTm90aWZpY2F0aW9uIjp7InZlcnNpb24iOiIxLjAiLCJub3RpZmljYXRpb25UeXBlIjo0LCJwdXJjaGFzZVRva2VuIjoiZ3Atc3ViLXRva2VuLTEifX0=",
+          "messageId": "9000000001",
+          "message_id": "9000000001",
+          "publishTime": "2026-11-18T12:00:00.000Z",
+          "publish_time": "2026-11-18T12:00:00.000Z",
+          "attributes": {}
+        },
+        "subscription": "projects/iap-guard-test/subscriptions/play-rtdn-push"
+      },
+      "expected": {
+        "event": "purchased",
+        "rawType": "SUBSCRIPTION_PURCHASED",
+        "token": "gp-sub-token-1",
+        "fetch": "subscription"
+      }
+    },
+    "subscriptionUpgradePurchased": {
+      "body": {
+        "message": {
+          "data": "eyJ2ZXJzaW9uIjoiMS4wIiwicGFja2FnZU5hbWUiOiJjb20uZXhhbXBsZS5hcHAiLCJldmVudFRpbWVNaWxsaXMiOiIxNzk1MDAzMTQwMDAwIiwic3Vic2NyaXB0aW9uTm90aWZpY2F0aW9uIjp7InZlcnNpb24iOiIxLjAiLCJub3RpZmljYXRpb25UeXBlIjo0LCJwdXJjaGFzZVRva2VuIjoiZ3Atc3ViLXRva2VuLTIifX0=",
+          "messageId": "9000000002",
+          "message_id": "9000000002",
+          "publishTime": "2026-11-18T12:00:00.000Z",
+          "publish_time": "2026-11-18T12:00:00.000Z",
+          "attributes": {}
+        },
+        "subscription": "projects/iap-guard-test/subscriptions/play-rtdn-push"
+      },
+      "expected": {
+        "event": "plan_changed",
+        "rawType": "SUBSCRIPTION_PURCHASED",
+        "token": "gp-sub-token-2",
+        "fetch": "subscription",
+        "note": "plan_changed only when gp-sub-token-1 is already stored; otherwise purchased"
+      }
+    },
+    "subscriptionRecovered": {
+      "body": {
+        "message": {
+          "data": "eyJ2ZXJzaW9uIjoiMS4wIiwicGFja2FnZU5hbWUiOiJjb20uZXhhbXBsZS5hcHAiLCJldmVudFRpbWVNaWxsaXMiOiIxNzk1MDAzMTQwMDAwIiwic3Vic2NyaXB0aW9uTm90aWZpY2F0aW9uIjp7InZlcnNpb24iOiIxLjAiLCJub3RpZmljYXRpb25UeXBlIjoxLCJwdXJjaGFzZVRva2VuIjoiZ3Atc3ViLXRva2VuLTEifX0=",
+          "messageId": "9000000003",
+          "message_id": "9000000003",
+          "publishTime": "2026-11-18T12:00:00.000Z",
+          "publish_time": "2026-11-18T12:00:00.000Z",
+          "attributes": {}
+        },
+        "subscription": "projects/iap-guard-test/subscriptions/play-rtdn-push"
+      },
+      "expected": {
+        "event": "recovered",
+        "rawType": "SUBSCRIPTION_RECOVERED",
+        "token": "gp-sub-token-1",
+        "fetch": "subscription"
+      }
+    },
+    "subscriptionRenewed": {
+      "body": {
+        "message": {
+          "data": "eyJ2ZXJzaW9uIjoiMS4wIiwicGFja2FnZU5hbWUiOiJjb20uZXhhbXBsZS5hcHAiLCJldmVudFRpbWVNaWxsaXMiOiIxNzk1MDAzMTQwMDAwIiwic3Vic2NyaXB0aW9uTm90aWZpY2F0aW9uIjp7InZlcnNpb24iOiIxLjAiLCJub3RpZmljYXRpb25UeXBlIjoyLCJwdXJjaGFzZVRva2VuIjoiZ3Atc3ViLXRva2VuLTEifX0=",
+          "messageId": "9000000004",
+          "message_id": "9000000004",
+          "publishTime": "2026-11-18T12:00:00.000Z",
+          "publish_time": "2026-11-18T12:00:00.000Z",
+          "attributes": {}
+        },
+        "subscription": "projects/iap-guard-test/subscriptions/play-rtdn-push"
+      },
+      "expected": {
+        "event": "renewed",
+        "rawType": "SUBSCRIPTION_RENEWED",
+        "token": "gp-sub-token-1",
+        "fetch": "subscription"
+      }
+    },
+    "subscriptionCanceled": {
+      "body": {
+        "message": {
+          "data": "eyJ2ZXJzaW9uIjoiMS4wIiwicGFja2FnZU5hbWUiOiJjb20uZXhhbXBsZS5hcHAiLCJldmVudFRpbWVNaWxsaXMiOiIxNzk1MDAzMTQwMDAwIiwic3Vic2NyaXB0aW9uTm90aWZpY2F0aW9uIjp7InZlcnNpb24iOiIxLjAiLCJub3RpZmljYXRpb25UeXBlIjozLCJwdXJjaGFzZVRva2VuIjoiZ3Atc3ViLXRva2VuLTEifX0=",
+          "messageId": "9000000005",
+          "message_id": "9000000005",
+          "publishTime": "2026-11-18T12:00:00.000Z",
+          "publish_time": "2026-11-18T12:00:00.000Z",
+          "attributes": {}
+        },
+        "subscription": "projects/iap-guard-test/subscriptions/play-rtdn-push"
+      },
+      "expected": {
+        "event": "auto_renew_disabled",
+        "rawType": "SUBSCRIPTION_CANCELED",
+        "token": "gp-sub-token-1",
+        "fetch": "subscription"
+      }
+    },
+    "subscriptionOnHold": {
+      "body": {
+        "message": {
+          "data": "eyJ2ZXJzaW9uIjoiMS4wIiwicGFja2FnZU5hbWUiOiJjb20uZXhhbXBsZS5hcHAiLCJldmVudFRpbWVNaWxsaXMiOiIxNzk1MDAzMTQwMDAwIiwic3Vic2NyaXB0aW9uTm90aWZpY2F0aW9uIjp7InZlcnNpb24iOiIxLjAiLCJub3RpZmljYXRpb25UeXBlIjo1LCJwdXJjaGFzZVRva2VuIjoiZ3Atc3ViLXRva2VuLTEifX0=",
+          "messageId": "9000000006",
+          "message_id": "9000000006",
+          "publishTime": "2026-11-18T12:00:00.000Z",
+          "publish_time": "2026-11-18T12:00:00.000Z",
+          "attributes": {}
+        },
+        "subscription": "projects/iap-guard-test/subscriptions/play-rtdn-push"
+      },
+      "expected": {
+        "event": "renewal_failed",
+        "rawType": "SUBSCRIPTION_ON_HOLD",
+        "token": "gp-sub-token-1",
+        "fetch": "subscription"
+      }
+    },
+    "subscriptionInGracePeriod": {
+      "body": {
+        "message": {
+          "data": "eyJ2ZXJzaW9uIjoiMS4wIiwicGFja2FnZU5hbWUiOiJjb20uZXhhbXBsZS5hcHAiLCJldmVudFRpbWVNaWxsaXMiOiIxNzk1MDAzMTQwMDAwIiwic3Vic2NyaXB0aW9uTm90aWZpY2F0aW9uIjp7InZlcnNpb24iOiIxLjAiLCJub3RpZmljYXRpb25UeXBlIjo2LCJwdXJjaGFzZVRva2VuIjoiZ3Atc3ViLXRva2VuLTEifX0=",
+          "messageId": "9000000007",
+          "message_id": "9000000007",
+          "publishTime": "2026-11-18T12:00:00.000Z",
+          "publish_time": "2026-11-18T12:00:00.000Z",
+          "attributes": {}
+        },
+        "subscription": "projects/iap-guard-test/subscriptions/play-rtdn-push"
+      },
+      "expected": {
+        "event": "grace_period_started",
+        "rawType": "SUBSCRIPTION_IN_GRACE_PERIOD",
+        "token": "gp-sub-token-1",
+        "fetch": "subscription"
+      }
+    },
+    "subscriptionRestarted": {
+      "body": {
+        "message": {
+          "data": "eyJ2ZXJzaW9uIjoiMS4wIiwicGFja2FnZU5hbWUiOiJjb20uZXhhbXBsZS5hcHAiLCJldmVudFRpbWVNaWxsaXMiOiIxNzk1MDAzMTQwMDAwIiwic3Vic2NyaXB0aW9uTm90aWZpY2F0aW9uIjp7InZlcnNpb24iOiIxLjAiLCJub3RpZmljYXRpb25UeXBlIjo3LCJwdXJjaGFzZVRva2VuIjoiZ3Atc3ViLXRva2VuLTEifX0=",
+          "messageId": "9000000008",
+          "message_id": "9000000008",
+          "publishTime": "2026-11-18T12:00:00.000Z",
+          "publish_time": "2026-11-18T12:00:00.000Z",
+          "attributes": {}
+        },
+        "subscription": "projects/iap-guard-test/subscriptions/play-rtdn-push"
+      },
+      "expected": {
+        "event": "auto_renew_enabled",
+        "rawType": "SUBSCRIPTION_RESTARTED",
+        "token": "gp-sub-token-1",
+        "fetch": "subscription"
+      }
+    },
+    "subscriptionPriceChangeUpdated": {
+      "body": {
+        "message": {
+          "data": "eyJ2ZXJzaW9uIjoiMS4wIiwicGFja2FnZU5hbWUiOiJjb20uZXhhbXBsZS5hcHAiLCJldmVudFRpbWVNaWxsaXMiOiIxNzk1MDAzMTQwMDAwIiwic3Vic2NyaXB0aW9uTm90aWZpY2F0aW9uIjp7InZlcnNpb24iOiIxLjAiLCJub3RpZmljYXRpb25UeXBlIjoxOSwicHVyY2hhc2VUb2tlbiI6ImdwLXN1Yi10b2tlbi0xIn19",
+          "messageId": "9000000009",
+          "message_id": "9000000009",
+          "publishTime": "2026-11-18T12:00:00.000Z",
+          "publish_time": "2026-11-18T12:00:00.000Z",
+          "attributes": {}
+        },
+        "subscription": "projects/iap-guard-test/subscriptions/play-rtdn-push"
+      },
+      "expected": {
+        "event": "price_change",
+        "rawType": "SUBSCRIPTION_PRICE_CHANGE_UPDATED",
+        "token": "gp-sub-token-1",
+        "fetch": "subscription"
+      }
+    },
+    "subscriptionDeferred": {
+      "body": {
+        "message": {
+          "data": "eyJ2ZXJzaW9uIjoiMS4wIiwicGFja2FnZU5hbWUiOiJjb20uZXhhbXBsZS5hcHAiLCJldmVudFRpbWVNaWxsaXMiOiIxNzk1MDAzMTQwMDAwIiwic3Vic2NyaXB0aW9uTm90aWZpY2F0aW9uIjp7InZlcnNpb24iOiIxLjAiLCJub3RpZmljYXRpb25UeXBlIjo5LCJwdXJjaGFzZVRva2VuIjoiZ3Atc3ViLXRva2VuLTEifX0=",
+          "messageId": "9000000010",
+          "message_id": "9000000010",
+          "publishTime": "2026-11-18T12:00:00.000Z",
+          "publish_time": "2026-11-18T12:00:00.000Z",
+          "attributes": {}
+        },
+        "subscription": "projects/iap-guard-test/subscriptions/play-rtdn-push"
+      },
+      "expected": {
+        "event": "other",
+        "rawType": "SUBSCRIPTION_DEFERRED",
+        "token": "gp-sub-token-1",
+        "fetch": "subscription"
+      }
+    },
+    "subscriptionPaused": {
+      "body": {
+        "message": {
+          "data": "eyJ2ZXJzaW9uIjoiMS4wIiwicGFja2FnZU5hbWUiOiJjb20uZXhhbXBsZS5hcHAiLCJldmVudFRpbWVNaWxsaXMiOiIxNzk1MDAzMTQwMDAwIiwic3Vic2NyaXB0aW9uTm90aWZpY2F0aW9uIjp7InZlcnNpb24iOiIxLjAiLCJub3RpZmljYXRpb25UeXBlIjoxMCwicHVyY2hhc2VUb2tlbiI6ImdwLXN1Yi10b2tlbi0xIn19",
+          "messageId": "9000000011",
+          "message_id": "9000000011",
+          "publishTime": "2026-11-18T12:00:00.000Z",
+          "publish_time": "2026-11-18T12:00:00.000Z",
+          "attributes": {}
+        },
+        "subscription": "projects/iap-guard-test/subscriptions/play-rtdn-push"
+      },
+      "expected": {
+        "event": "paused",
+        "rawType": "SUBSCRIPTION_PAUSED",
+        "token": "gp-sub-token-1",
+        "fetch": "subscription"
+      }
+    },
+    "subscriptionRevoked": {
+      "body": {
+        "message": {
+          "data": "eyJ2ZXJzaW9uIjoiMS4wIiwicGFja2FnZU5hbWUiOiJjb20uZXhhbXBsZS5hcHAiLCJldmVudFRpbWVNaWxsaXMiOiIxNzk1MDAzMTQwMDAwIiwic3Vic2NyaXB0aW9uTm90aWZpY2F0aW9uIjp7InZlcnNpb24iOiIxLjAiLCJub3RpZmljYXRpb25UeXBlIjoxMiwicHVyY2hhc2VUb2tlbiI6ImdwLXN1Yi10b2tlbi0xIn19",
+          "messageId": "9000000012",
+          "message_id": "9000000012",
+          "publishTime": "2026-11-18T12:00:00.000Z",
+          "publish_time": "2026-11-18T12:00:00.000Z",
+          "attributes": {}
+        },
+        "subscription": "projects/iap-guard-test/subscriptions/play-rtdn-push"
+      },
+      "expected": {
+        "event": "revoked",
+        "rawType": "SUBSCRIPTION_REVOKED",
+        "token": "gp-sub-token-1",
+        "fetch": "subscription",
+        "forceStatus": "revoked"
+      }
+    },
+    "subscriptionExpired": {
+      "body": {
+        "message": {
+          "data": "eyJ2ZXJzaW9uIjoiMS4wIiwicGFja2FnZU5hbWUiOiJjb20uZXhhbXBsZS5hcHAiLCJldmVudFRpbWVNaWxsaXMiOiIxNzk1MDAzMTQwMDAwIiwic3Vic2NyaXB0aW9uTm90aWZpY2F0aW9uIjp7InZlcnNpb24iOiIxLjAiLCJub3RpZmljYXRpb25UeXBlIjoxMywicHVyY2hhc2VUb2tlbiI6ImdwLXN1Yi10b2tlbi0xIn19",
+          "messageId": "9000000013",
+          "message_id": "9000000013",
+          "publishTime": "2026-11-18T12:00:00.000Z",
+          "publish_time": "2026-11-18T12:00:00.000Z",
+          "attributes": {}
+        },
+        "subscription": "projects/iap-guard-test/subscriptions/play-rtdn-push"
+      },
+      "expected": {
+        "event": "expired",
+        "rawType": "SUBSCRIPTION_EXPIRED",
+        "token": "gp-sub-token-1",
+        "fetch": "subscription"
+      }
+    },
+    "subscriptionPendingCanceled": {
+      "body": {
+        "message": {
+          "data": "eyJ2ZXJzaW9uIjoiMS4wIiwicGFja2FnZU5hbWUiOiJjb20uZXhhbXBsZS5hcHAiLCJldmVudFRpbWVNaWxsaXMiOiIxNzk1MDAzMTQwMDAwIiwic3Vic2NyaXB0aW9uTm90aWZpY2F0aW9uIjp7InZlcnNpb24iOiIxLjAiLCJub3RpZmljYXRpb25UeXBlIjoyMCwicHVyY2hhc2VUb2tlbiI6ImdwLXN1Yi10b2tlbi1wZW5kaW5nIn19",
+          "messageId": "9000000014",
+          "message_id": "9000000014",
+          "publishTime": "2026-11-18T12:00:00.000Z",
+          "publish_time": "2026-11-18T12:00:00.000Z",
+          "attributes": {}
+        },
+        "subscription": "projects/iap-guard-test/subscriptions/play-rtdn-push"
+      },
+      "expected": {
+        "event": "canceled",
+        "rawType": "SUBSCRIPTION_PENDING_PURCHASE_CANCELED",
+        "token": "gp-sub-token-pending",
+        "fetch": "subscription"
+      }
+    },
+    "subscriptionUnknownType": {
+      "body": {
+        "message": {
+          "data": "eyJ2ZXJzaW9uIjoiMS4wIiwicGFja2FnZU5hbWUiOiJjb20uZXhhbXBsZS5hcHAiLCJldmVudFRpbWVNaWxsaXMiOiIxNzk1MDAzMTQwMDAwIiwic3Vic2NyaXB0aW9uTm90aWZpY2F0aW9uIjp7InZlcnNpb24iOiIxLjAiLCJub3RpZmljYXRpb25UeXBlIjo5OSwicHVyY2hhc2VUb2tlbiI6ImdwLXN1Yi10b2tlbi0xIn19",
+          "messageId": "9000000015",
+          "message_id": "9000000015",
+          "publishTime": "2026-11-18T12:00:00.000Z",
+          "publish_time": "2026-11-18T12:00:00.000Z",
+          "attributes": {}
+        },
+        "subscription": "projects/iap-guard-test/subscriptions/play-rtdn-push"
+      },
+      "expected": {
+        "event": "other",
+        "rawType": "SUBSCRIPTION_99",
+        "token": "gp-sub-token-1",
+        "fetch": "subscription"
+      }
+    },
+    "oneTimePurchased": {
+      "body": {
+        "message": {
+          "data": "eyJ2ZXJzaW9uIjoiMS4wIiwicGFja2FnZU5hbWUiOiJjb20uZXhhbXBsZS5hcHAiLCJldmVudFRpbWVNaWxsaXMiOiIxNzk1MDAzMTQwMDAwIiwib25lVGltZVByb2R1Y3ROb3RpZmljYXRpb24iOnsidmVyc2lvbiI6IjEuMCIsIm5vdGlmaWNhdGlvblR5cGUiOjEsInB1cmNoYXNlVG9rZW4iOiJncC1wcm9kLXRva2VuLWNvaW5zIiwic2t1IjoiY29pbnNfMTAwIn19",
+          "messageId": "9000000016",
+          "message_id": "9000000016",
+          "publishTime": "2026-11-18T12:00:00.000Z",
+          "publish_time": "2026-11-18T12:00:00.000Z",
+          "attributes": {}
+        },
+        "subscription": "projects/iap-guard-test/subscriptions/play-rtdn-push"
+      },
+      "expected": {
+        "event": "purchased",
+        "rawType": "ONE_TIME_PRODUCT_PURCHASED",
+        "token": "gp-prod-token-coins",
+        "fetch": "product"
+      }
+    },
+    "oneTimeCanceled": {
+      "body": {
+        "message": {
+          "data": "eyJ2ZXJzaW9uIjoiMS4wIiwicGFja2FnZU5hbWUiOiJjb20uZXhhbXBsZS5hcHAiLCJldmVudFRpbWVNaWxsaXMiOiIxNzk1MDAzMTQwMDAwIiwib25lVGltZVByb2R1Y3ROb3RpZmljYXRpb24iOnsidmVyc2lvbiI6IjEuMCIsIm5vdGlmaWNhdGlvblR5cGUiOjIsInB1cmNoYXNlVG9rZW4iOiJncC1wcm9kLXRva2VuLXBlbmRpbmciLCJza3UiOiJjb2luc18xMDAifX0=",
+          "messageId": "9000000017",
+          "message_id": "9000000017",
+          "publishTime": "2026-11-18T12:00:00.000Z",
+          "publish_time": "2026-11-18T12:00:00.000Z",
+          "attributes": {}
+        },
+        "subscription": "projects/iap-guard-test/subscriptions/play-rtdn-push"
+      },
+      "expected": {
+        "event": "canceled",
+        "rawType": "ONE_TIME_PRODUCT_CANCELED",
+        "token": "gp-prod-token-pending",
+        "fetch": "product"
+      }
+    },
+    "voidedFull": {
+      "body": {
+        "message": {
+          "data": "eyJ2ZXJzaW9uIjoiMS4wIiwicGFja2FnZU5hbWUiOiJjb20uZXhhbXBsZS5hcHAiLCJldmVudFRpbWVNaWxsaXMiOiIxNzk1MDAzMTQwMDAwIiwidm9pZGVkUHVyY2hhc2VOb3RpZmljYXRpb24iOnsicHVyY2hhc2VUb2tlbiI6ImdwLXByb2QtdG9rZW4tbGlmZXRpbWUiLCJvcmRlcklkIjoiR1BBLjMzOTktMTExMS0yMjIyLTQ0NDQ0IiwicHJvZHVjdFR5cGUiOjIsInJlZnVuZFR5cGUiOjF9fQ==",
+          "messageId": "9000000018",
+          "message_id": "9000000018",
+          "publishTime": "2026-11-18T12:00:00.000Z",
+          "publish_time": "2026-11-18T12:00:00.000Z",
+          "attributes": {}
+        },
+        "subscription": "projects/iap-guard-test/subscriptions/play-rtdn-push"
+      },
+      "expected": {
+        "event": "refunded",
+        "rawType": "VOIDED_PURCHASE",
+        "token": "gp-prod-token-lifetime",
+        "fetch": null,
+        "forceStatus": "revoked"
+      }
+    },
+    "voidedPartial": {
+      "body": {
+        "message": {
+          "data": "eyJ2ZXJzaW9uIjoiMS4wIiwicGFja2FnZU5hbWUiOiJjb20uZXhhbXBsZS5hcHAiLCJldmVudFRpbWVNaWxsaXMiOiIxNzk1MDAzMTQwMDAwIiwidm9pZGVkUHVyY2hhc2VOb3RpZmljYXRpb24iOnsicHVyY2hhc2VUb2tlbiI6ImdwLXByb2QtdG9rZW4tY29pbnMiLCJvcmRlcklkIjoiR1BBLjMzOTktMTExMS0yMjIyLTMzMzMzIiwicHJvZHVjdFR5cGUiOjIsInJlZnVuZFR5cGUiOjJ9fQ==",
+          "messageId": "9000000019",
+          "message_id": "9000000019",
+          "publishTime": "2026-11-18T12:00:00.000Z",
+          "publish_time": "2026-11-18T12:00:00.000Z",
+          "attributes": {}
+        },
+        "subscription": "projects/iap-guard-test/subscriptions/play-rtdn-push"
+      },
+      "expected": {
+        "event": "refunded",
+        "rawType": "VOIDED_PURCHASE",
+        "token": "gp-prod-token-coins",
+        "fetch": null,
+        "forceStatus": null
+      }
+    },
+    "voidedSubscription": {
+      "body": {
+        "message": {
+          "data": "eyJ2ZXJzaW9uIjoiMS4wIiwicGFja2FnZU5hbWUiOiJjb20uZXhhbXBsZS5hcHAiLCJldmVudFRpbWVNaWxsaXMiOiIxNzk1MDAzMTQwMDAwIiwidm9pZGVkUHVyY2hhc2VOb3RpZmljYXRpb24iOnsicHVyY2hhc2VUb2tlbiI6ImdwLXN1Yi10b2tlbi0xIiwib3JkZXJJZCI6IkdQQS4zMzExLTIyMjItMzMzMy00NDQ0NCIsInByb2R1Y3RUeXBlIjoxLCJyZWZ1bmRUeXBlIjoxfX0=",
+          "messageId": "9000000020",
+          "message_id": "9000000020",
+          "publishTime": "2026-11-18T12:00:00.000Z",
+          "publish_time": "2026-11-18T12:00:00.000Z",
+          "attributes": {}
+        },
+        "subscription": "projects/iap-guard-test/subscriptions/play-rtdn-push"
+      },
+      "expected": {
+        "event": "refunded",
+        "rawType": "VOIDED_PURCHASE",
+        "token": "gp-sub-token-1",
+        "fetch": null,
+        "forceStatus": "revoked"
+      }
+    },
+    "test": {
+      "body": {
+        "message": {
+          "data": "eyJ2ZXJzaW9uIjoiMS4wIiwicGFja2FnZU5hbWUiOiJjb20uZXhhbXBsZS5hcHAiLCJldmVudFRpbWVNaWxsaXMiOiIxNzk1MDAzMTQwMDAwIiwidGVzdE5vdGlmaWNhdGlvbiI6eyJ2ZXJzaW9uIjoiMS4wIn19",
+          "messageId": "9000000021",
+          "message_id": "9000000021",
+          "publishTime": "2026-11-18T12:00:00.000Z",
+          "publish_time": "2026-11-18T12:00:00.000Z",
+          "attributes": {}
+        },
+        "subscription": "projects/iap-guard-test/subscriptions/play-rtdn-push"
+      },
+      "expected": {
+        "event": "test",
+        "rawType": "TEST",
+        "token": null,
+        "fetch": null
+      }
+    },
+    "pendingRefundReview": {
+      "body": {
+        "message": {
+          "data": "eyJ2ZXJzaW9uIjoiMS4wIiwicGFja2FnZU5hbWUiOiJjb20uZXhhbXBsZS5hcHAiLCJldmVudFRpbWVNaWxsaXMiOiIxNzk1MDAzMTQwMDAwIiwicGVuZGluZ1JlZnVuZFJldmlld05vdGlmaWNhdGlvbiI6eyJwdXJjaGFzZVRva2VuIjoiZ3AtcHJvZC10b2tlbi1jb2lucyJ9fQ==",
+          "messageId": "9000000022",
+          "message_id": "9000000022",
+          "publishTime": "2026-11-18T12:00:00.000Z",
+          "publish_time": "2026-11-18T12:00:00.000Z",
+          "attributes": {}
+        },
+        "subscription": "projects/iap-guard-test/subscriptions/play-rtdn-push"
+      },
+      "expected": {
+        "event": "other",
+        "rawType": "UNKNOWN",
+        "token": null,
+        "fetch": null
+      }
+    },
+    "eventTimeAsNumber": {
+      "body": {
+        "message": {
+          "data": "eyJ2ZXJzaW9uIjoiMS4wIiwicGFja2FnZU5hbWUiOiJjb20uZXhhbXBsZS5hcHAiLCJldmVudFRpbWVNaWxsaXMiOjE3OTUwMDMxNDAwMDAsInN1YnNjcmlwdGlvbk5vdGlmaWNhdGlvbiI6eyJ2ZXJzaW9uIjoiMS4wIiwibm90aWZpY2F0aW9uVHlwZSI6MiwicHVyY2hhc2VUb2tlbiI6ImdwLXN1Yi10b2tlbi0xIn19",
+          "messageId": "9000000023",
+          "message_id": "9000000023",
+          "publishTime": "2026-11-18T12:00:00.000Z",
+          "publish_time": "2026-11-18T12:00:00.000Z",
+          "attributes": {}
+        },
+        "subscription": "projects/iap-guard-test/subscriptions/play-rtdn-push"
+      },
+      "expected": {
+        "event": "renewed",
+        "rawType": "SUBSCRIPTION_RENEWED",
+        "token": "gp-sub-token-1",
+        "fetch": "subscription"
+      }
+    },
+    "wrongPackage": {
+      "body": {
+        "message": {
+          "data": "eyJ2ZXJzaW9uIjoiMS4wIiwicGFja2FnZU5hbWUiOiJjb20ub3RoZXIuYXBwIiwiZXZlbnRUaW1lTWlsbGlzIjoiMTc5NTAwMzE0MDAwMCIsInN1YnNjcmlwdGlvbk5vdGlmaWNhdGlvbiI6eyJ2ZXJzaW9uIjoiMS4wIiwibm90aWZpY2F0aW9uVHlwZSI6NCwicHVyY2hhc2VUb2tlbiI6ImdwLXN1Yi10b2tlbi0xIn19",
+          "messageId": "9000000024",
+          "message_id": "9000000024",
+          "publishTime": "2026-11-18T12:00:00.000Z",
+          "publish_time": "2026-11-18T12:00:00.000Z",
+          "attributes": {}
+        },
+        "subscription": "projects/iap-guard-test/subscriptions/play-rtdn-push"
+      },
+      "expectedError": "WRONG_APP"
+    },
+    "dataNotBase64Json": {
+      "body": {
+        "message": {
+          "data": "%%%not-base64%%%",
+          "messageId": "9000000999"
+        },
+        "subscription": "projects/x/subscriptions/y"
+      },
+      "expectedError": "INVALID_NOTIFICATION"
+    },
+    "missingMessage": {
+      "body": {
+        "subscription": "projects/x/subscriptions/y"
+      },
+      "expectedError": "INVALID_NOTIFICATION"
+    },
+    "missingMessageId": {
+      "body": {
+        "message": {
+          "data": "eyJ2ZXJzaW9uIjoiMS4wIiwicGFja2FnZU5hbWUiOiJjb20uZXhhbXBsZS5hcHAiLCJldmVudFRpbWVNaWxsaXMiOiIxNzk1MDAzMTQwMDAwIiwic3Vic2NyaXB0aW9uTm90aWZpY2F0aW9uIjp7InZlcnNpb24iOiIxLjAiLCJub3RpZmljYXRpb25UeXBlIjoyLCJwdXJjaGFzZVRva2VuIjoiZ3Atc3ViLXRva2VuLTEifX0="
+        }
+      },
+      "expectedError": "INVALID_NOTIFICATION"
+    }
+  }
+}
