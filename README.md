@@ -1,5 +1,11 @@
 # @bijayx/iap-guard
 
+[![npm version](https://img.shields.io/npm/v/@bijayx/iap-guard.svg)](https://www.npmjs.com/package/@bijayx/iap-guard)
+[![npm downloads](https://img.shields.io/npm/dm/@bijayx/iap-guard.svg)](https://www.npmjs.com/package/@bijayx/iap-guard)
+[![CI](https://github.com/BijayX/iap-guard-node/actions/workflows/ci.yml/badge.svg)](https://github.com/BijayX/iap-guard-node/actions/workflows/ci.yml)
+[![Node.js](https://img.shields.io/node/v/@bijayx/iap-guard.svg)](https://www.npmjs.com/package/@bijayx/iap-guard)
+[![License: MIT](https://img.shields.io/npm/l/@bijayx/iap-guard.svg)](LICENSE)
+
 Server-side verification **and ownership protection** for Apple App Store and Google Play
 in-app purchases, behind one typed API.
 
