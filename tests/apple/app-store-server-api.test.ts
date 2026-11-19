@@ -61,7 +61,7 @@ describe('App Store Server API', () => {
     });
     expect(claims.iat).toBe(NOW.getTime() / 1000);
     expect(claims.exp - claims.iat).toBe(expected.claims.expMinusIat);
-    expect(fetch.calls[0]!.headers['User-Agent']).toBe('iap-guard-node/0.1.0');
+    expect(fetch.calls[0]!.headers['User-Agent']).toBe('iap-guard-node/0.1.1');
   });
 
   it('reuses the JWT within its lifetime and regenerates it before expiry', async () => {

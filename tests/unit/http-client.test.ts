@@ -30,7 +30,7 @@ describe('HttpClient', () => {
     expect(b.body).toBeNull();
     expect(fetch.calls[0]!.headers['Content-Type']).toBe('application/json');
     expect(fetch.calls[1]!.body).toBe('x=y+z');
-    expect(fetch.calls[1]!.headers['User-Agent']).toBe('iap-guard-node/0.1.0');
+    expect(fetch.calls[1]!.headers['User-Agent']).toBe('iap-guard-node/0.1.1');
   });
 
   it('returns non-JSON bodies as text', async () => {

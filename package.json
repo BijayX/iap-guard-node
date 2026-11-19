@@ -1,6 +1,6 @@
 {
   "name": "@bijayx/iap-guard",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Server-side verification and ownership protection for Apple App Store and Google Play in-app purchases. One API for both stores, zero runtime dependencies.",
   "keywords": [
     "in-app-purchase",
